@@ -1,0 +1,30 @@
+<script>
+    
+    $(document).ready(function(){
+        calc("all");
+        var i ;
+        for (i = 1; i <= 12; i++) {
+            $('.item'+i).on('ifChanged', function(event) {
+                calc();
+            }) ;
+
+            }
+     }) ;
+     function calc(index){
+
+        for (var i = 1; i <= 12; i++) {
+                var $checked = 0 ;
+		        $('.item'+i).each(function(){
+                    if ($(this).is(':checked')) {$checked++;}
+                })
+			       if($checked > 0){ 
+                       $( ".p"+i ).text($("#total"+i).html()/$checked);
+                     }
+                     else{ 
+                         $( ".p"+i ).text( 0 );
+                        }
+            }             
+          
+     }
+  
+</script>
